@@ -330,6 +330,7 @@ MonoBehaviour:
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96
   m_DynamicPixelsPerUnit: 1
+  m_PresetInfoIsWorld: 0
 --- !u!223 &1122904348
 Canvas:
   m_ObjectHideFlags: 0
@@ -441,7 +442,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TEST
+  m_Text: big dick
 --- !u!222 &1576413546
 CanvasRenderer:
   m_ObjectHideFlags: 0
