@@ -50,12 +50,13 @@ public class Player : MonoBehaviour
         // 2D Code for Player to jump
         if (IsGrounded() && Input.GetKeyDown(KeyCode.Space))
         {
-            float jumpVelocity = 25f;
+            float jumpVelocity = 30f;
             rigidbody2d.velocity = Vector2.up * jumpVelocity;
         }
 
         // DirectionControl???
         // HandleMovement_[Full/Some/No]MidAirControl();
+        HandleMovement_FullMidAirControl();
 
         // Set Animations
         /*if (IsGrounded())
@@ -70,14 +71,22 @@ public class Player : MonoBehaviour
         else {
             playerBase.PlayJumpAnim(rigidbody2d.velocity);
         }*/
+
+
+        // Vector3 vertical = new Vector3(0.0f, Input.GetAxis("Vertical"), 0.0f);
+        // transform.position = transform.position + vertical * Time.deltaTime;
     }
 
     private bool IsGrounded() {
         // Checks if player is grounded by boxcast method instead of raycast
-        RaycastHit2D raycastHit2d = Physics2D.BoxCast(boxCollider2d.bounds.center, boxCollider2d.bounds.size, 0f, Vector2.down * .1f, platformslayerMask);
+        RaycastHit2D raycastHit2d = Physics2D.BoxCast(boxCollider2d.bounds.center, boxCollider2d.bounds.size, 0f, Vector2.down, .1f, platformslayerMask); 
+        // Vector2.down * .1f
+        
         // BoxcastHit2D boxcastHit2d = Physics2D.BoxCast(boxCollider2d.bounds.center, boxCollider2d.bounds.size, 0f, Vector2.down * .1f, platformslayerMask);
+
         // Debug.Log(raycastHit2d.collider);
         // Debug.Log(boxcastHit2d.collider);
+
         return raycastHit2d.collider != null;
         // return boxcastHit2d.collider != null;
     }
